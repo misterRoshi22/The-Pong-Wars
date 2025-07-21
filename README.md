@@ -68,7 +68,3 @@ Once connected to WiFi, the device will:
 
 - `GET /reset` - Reset the game
 - `POST /change_size?block_dim=X` - Change grid size (X must be a factor of 60: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60)
-
-## License
-
-[Add your license here]
