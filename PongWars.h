@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include "epd_driver.h"
+#include <ctime>
 
 // Constants for colors
 const int BLACK = 0;
@@ -20,9 +21,10 @@ private:
     int block_dim;
     int num_blocks_x;
     int num_blocks_y;
+    int seed;
     
-    #define GRID(x, y) grid[(x) * num_blocks_y + (y)]
-    #define CIRCLE(x, y) circle[(x) * block_dim + (y)]
+    uint8_t& getGrid(int x, int y) { return grid[x * num_blocks_y + y]; }
+    int& getCircle(int x, int y) { return circle[x * block_dim + y]; }
 
     int8_t getRandomDirection();
     int32_t getRandomNumber(int32_t min, int32_t max);
@@ -35,7 +37,7 @@ private:
     void moveBall(Ball &ball);
     
 public:
-    PongWars(int block_dim, int num_blocks_x, int num_blocks_y);
+    PongWars(int block_dim, int seed = time(NULL));
     ~PongWars();
     void reset(int new_block_dim = 15);
     void step();
