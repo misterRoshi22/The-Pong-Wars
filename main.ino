@@ -28,7 +28,7 @@ void setup() {
     framebuffer = (uint8_t *)ps_calloc(sizeof(uint8_t), EPD_WIDTH * EPD_HEIGHT / 2);
     memset(framebuffer, 0xFF, EPD_WIDTH * EPD_HEIGHT / 2);
 
-    pongWars = new PongWars(MAX_BLOCK_DIM, EPD_WIDTH / MAX_BLOCK_DIM, EPD_HEIGHT / MAX_BLOCK_DIM);
+    pongWars = new PongWars(20);
 
     WiFi.mode(WIFI_STA);
 
